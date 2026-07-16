@@ -41,6 +41,7 @@ by priyaranjan
 ## Sliding Window
 |  |
 | ------- |
+| [0076-minimum-window-substring](https://github.com/priyaranjan101/code/tree/master/0076-minimum-window-substring) |
 | [0209-minimum-size-subarray-sum](https://github.com/priyaranjan101/code/tree/master/0209-minimum-size-subarray-sum) |
 | [0904-fruit-into-baskets](https://github.com/priyaranjan101/code/tree/master/0904-fruit-into-baskets) |
 ## Prefix Sum
@@ -50,5 +51,10 @@ by priyaranjan
 ## Hash Table
 |  |
 | ------- |
+| [0076-minimum-window-substring](https://github.com/priyaranjan101/code/tree/master/0076-minimum-window-substring) |
 | [0904-fruit-into-baskets](https://github.com/priyaranjan101/code/tree/master/0904-fruit-into-baskets) |
+## String
+|  |
+| ------- |
+| [0076-minimum-window-substring](https://github.com/priyaranjan101/code/tree/master/0076-minimum-window-substring) |
 <!---LeetCode Topics End-->
