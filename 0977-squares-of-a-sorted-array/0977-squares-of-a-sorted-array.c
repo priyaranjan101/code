@@ -2,53 +2,56 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* sortedSquares(int* nums, int numsSize, int* returnSize) {
-    int* n = (int*)malloc(numsSize * sizeof(int));
-    int* m = (int*)malloc(numsSize * sizeof(int));
-    int p = 0, q = 0;
-    for (int i = 0; i < numsSize; i++) {
-        if (nums[i] < 0) {
-            n[p] = nums[i];
-            p++;
 
-        } else {
-            m[q] = nums[i];
+    int* a = (int*)malloc(numsSize * sizeof(int));
+    int* b = (int*)malloc(numsSize * sizeof(int));
+    int p = 0, q = 0, i=0, temp;
+    while (i < numsSize) {
+        if (nums[i] < 0){
+            a[p] = nums[i]; i++;
+        p++;}
+        else {
+            b[q] = nums[i]; i++;
             q++;
         }
     }
-    for (int i = 0; i < p; i++) {
-        n[i] = n[i] * n[i];
+    for (int i = 0; i < q; i++) {
+        b[i] = b[i] * b[i];
     }
-        for (int i = 0; i < p - 1; i++) {
-            for (int j = i + 1; j < p; j++) {
-                if (n[i] > n[j]) {
-                    int temp = n[i];
-                    n[i] = n[j];
-                    n[j] = temp;
-                }
+    for (int i = 0; i < p; i++) {
+        a[i] = a[i] * a[i];
+    }
+    for (int i = 0; i < p - 1; i++) {
+
+        for (int j = 0; j < p - i - 1; j++) {
+
+            if (a[j] > a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
             }
         }
+    }
     
-    for (int i = 0; i < q; i++) {
-        m[i] = m[i] * m[i];
-    }
-    int* d = (int*)malloc((p + q) * sizeof(int));
+
+    int* c = (int*)malloc((p + q) * sizeof(int));
     int x = 0, y = 0, k = 0;
-
     while (x < p && y < q) {
-        if (n[x] < m[y])
-            d[k++] = n[x++];
+        if (a[x] < b[y])
+            c[k++] = a[x++];
+
         else
-            d[k++] = m[y++];
+            c[k++] = b[y++];
+    }
+    while (x< p) {
+        c[k++] = a[x++];
+    }
+    while (y< q) {
+        c[k++] = b[y++];
     }
 
-    while (x < p)
-        d[k++] = n[x++];
-
-    while (y < q)
-        d[k++] = m[y++];
-
-    free(n);
-    free(m);
-    *returnSize = numsSize;
-    return d;
+* returnSize = numsSize;
+free(a);
+free(b);
+return c;
 }
